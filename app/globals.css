@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  width: 100dvw;
+  overflow-x: hidden;
+  font-family: "Round", sans-serif;
+  background-color: black;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+main {
+  background: linear-gradient(
+    223.17deg,
+    rgb(28, 24, 41) 0%,
+    rgb(27, 24, 40) 8.61%,
+    rgb(25, 23, 36) 17.21%,
+    rgb(22, 21, 32) 25.82%,
+    rgb(20, 19, 28) 34.42%,
+    rgb(18, 18, 24) 43.03%,
+    rgb(17, 17, 23) 51.63%
+  );
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  main {
+    @apply w-dvw overflow-x-hidden h-dvh;
+  }
+
+  .hero-section {
+    @apply w-dvw h-dvh relative overflow-hidden;
+  }
+
+  /* .mask-wrapper {
+    mask-image: url("/images/big-hero-text.svg");
+    mask-repeat: no-repeat;
+  } */
 }
