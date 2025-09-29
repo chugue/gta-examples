@@ -1,6 +1,5 @@
 "use client";
 
-import useLenisScroll from "@/lib/hooks/use-lenis-scroll";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,11 +9,10 @@ import ComingSoon from "./ComingSoon";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-  useLenisScroll();
   useGSAP(() => {
     gsap.set(".mask-wrapper", {
       maskPosition: "center 20%",
-      maskSize: "4000% 4000%",
+      maskSize: "3600% 3600%",
       maskRepeat: "no-repeat",
       maskImage: 'url("/images/big-hero-text.svg")',
     });
@@ -29,64 +27,28 @@ const Hero = () => {
       },
     });
 
-    tl.to(".scale-out ", { scale: 1, duration: 2, ease: "power1.inOut" })
-      .to(".fade-out", { scale: 1, duration: 2, ease: "power1.inOut" }, "<")
+    tl.to(".scale-out ", { scale: 1, ease: "power1.inOut" })
+      .to(".fade-out", { scale: 1, ease: "power1.inOut" }, "<")
+      .to(".overlay", { opacity: 1, ease: "power1.inOut" }, "<")
       .to(
         ".mask-wrapper",
         {
           maskPosition: "center 20%",
-          maskSize: "20% 20%",
-          duration: 2,
+          maskSize: "18% 18%",
         },
         "<"
       )
-      .to(".overlay", { opacity: 1, duration: 2, ease: "power1.inOut" }, "<")
-      .fromTo(
-        ".coming-soon-section",
-        {
-          opacity: 0,
-          scale: 2,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          backgroundPosition: "50% 0%",
-          ease: "power1.inOut",
-        },
-        "-=100%"
-      )
-      .fromTo(
-        ".logo-wrapper",
-        {
-          opacity: 0,
-          scale: 1.1,
-          maskPosition: "50% 100%",
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          maskPosition: "50% 0%",
-          ease: "power1.inOut",
-        }
-      );
-    // .to(
-    //   ".coming-soon-section",
-    //   {
-    //     backgroundPosition: "50% 50%",
-    //     scale: 0.9,
-    //   },
-    //   ">"
-    // )
-    // .to(
-    //   ".mask-wrapper",
-    //   {
-    //     maskPosition: "center 20%",
-    //     maskSize: "18% 18%",
-    //   },
-    //   "<"
-    // );
+      .to(".coming-soon-section", {
+        duration: 2,
+        maskImage:
+          "radial-gradient(circle at 50% 0vh, black 50%, transparent 100%)",
+        ease: "power1.inOut",
+      })
+      .to(".coming-soon-section, .mask-wrapper", {
+        opacity: 0,
+        duration: 2,
+        ease: "power1.inOut",
+      });
   });
 
   return (
@@ -108,10 +70,10 @@ const Hero = () => {
           src="/images/watch-trailer.png"
           alt="watch-trailer"
           className="absolute w-48 bottom-5 left-1/2 -translate-x-1/2 "
-          width={300}
-          height={300}
+          width={100}
+          height={100}
         />
-        <div className="overlay size-full absolute bg-white opacity-0" />
+        <div className="overlay size-full absolute bg-white opacity-0 z-10" />
       </div>
       <ComingSoon />
     </section>

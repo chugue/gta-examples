@@ -2,24 +2,37 @@ import Image from "next/image";
 
 const ComingSoon = () => {
   return (
-    <section className="coming-soon-section inset-0 flex-center opacity-0 absolute z-20 top-[-70]">
-      <div className="flex flex-col justify-center gap-20">
-        <div className="flex flex-center logo-wrapper">
+    <section className="coming-soon-section">
+      <div className="flex-col flex  gap-20 ">
+        <Image
+          src="/images/logo.webp"
+          alt="logo"
+          className="entrance-logo"
+          width={300}
+          height={300}
+        />
+        <div className="text-wrapper">
+          <h3 className="gradient-text">
+            Coming <br /> May 26 <br /> 2026
+          </h3>
+        </div>
+
+        <div className="flex-center gap-10 ">
           <Image
-            src="/images/logo.png"
-            alt="logo"
-            className="w-auto h-47 object-contain"
+            src="/images/ps-logo.svg"
+            className="w-20 "
+            alt=""
+            width={300}
+            height={300}
+          />
+          <Image
+            src="/images/x-logo.svg"
+            className="w-40 "
+            alt=""
             width={300}
             height={300}
           />
         </div>
-        <h1 className="gradient-text text-mask uppercase text-center text-9xl tracking-tight">
-          Coming
-          <br />
-          May 26
-          <br />
-          2026
-        </h1>
       </div>
     </section>
   );

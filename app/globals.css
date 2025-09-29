@@ -52,35 +52,22 @@ body {
   .hero-section {
     @apply w-dvw h-dvh relative overflow-hidden;
   }
-
-  .gradient-text {
-    @apply bg-clip-text text-transparent uppercase text-center font-round-bold 
-    md:text-[7rem] text-[5rem] !font-extrabold leading-[6.5rem] inset-0;
-    letter-spacing: -2px;
-  }
-
   .coming-soon-section {
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgb(255, 211, 127) 0%,
-      rgb(232, 66, 122) 20%,
-      rgb(112, 30, 101) 40%,
-      rgba(23, 21, 34, 0) 60%
-    );
-    background-size: 100% 300%;
-    background-position: 50% -100%;
-    background-repeat: no-repeat;
-    background-clip: text;
-    -webkit-background-clip: text;
-  }
-
-  .logo-wrapper {
-    opacity: 0;
-    mask-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0) 45% rgba(255, 255, 255, 1) 55%
-    );
+    @apply absolute inset-0 overflow-hidden z-50 opacity-100 flex justify-center;
+    margin-top: 0vh;
+    mask-image: radial-gradient(circle at 50% 100vh, black 0%, transparent 0%);
+    mask-repeat: no-repeat;
     mask-size: 100% 100%;
-    mask-position: 50% 50%;
+
+    .entrance-logo {
+      @apply w-79 h-auto mt-[16.3vh] object-contain self-center;
+    }
+
+    .gradient-text {
+      @apply text-[8rem] font-round-bold !font-extrabold leading-[7.5rem] inset-0 uppercase text-center text-transparent;
+      letter-spacing: -3px;
+      background-clip: text;
+      background-image: linear-gradient(to right, #fc63b1, #ff6583, #ff8619);
+    }
   }
 }
